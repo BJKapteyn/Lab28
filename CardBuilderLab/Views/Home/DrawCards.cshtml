@@ -1,0 +1,22 @@
+﻿@using CardBuilderLab.Models
+@model IEnumerable<CardBuilderLab.Models.Card>
+
+
+@{
+    if (Session["Deck"] != null)
+    {
+        foreach (Card c in Model)
+        {
+            <img src="@c.Image" />
+        }
+        <form action="~/Home/DrawCards">
+            <input type="submit" value="Draw Cards" />
+        </form>
+    }
+    else
+    {
+        <form action="~/Home/DrawCards">
+            <input type="submit" value="Draw Cards" />
+        </form>
+    }
+}
